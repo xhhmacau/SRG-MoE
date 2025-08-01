@@ -51,7 +51,7 @@ python run.py \
     --task_name long_term_forecast \
     --is_training 1 \
     --model_id ETTh1_96_96 \
-    --model SREMC_MoE \
+    --model SRG_MoE \
     --root_path ./dataset/ETT-small/ \
     --data_path ETTh1.csv \
     --data ETTh1 \
@@ -109,6 +109,6 @@ The detailed descriptions about the arguments are as follows:
 
 #### Weather Dataset Forecasting
 ```bash
-python run.py --task_name long_term_forecast --is_training 1 --model_id Weather_96_96 --model SREMC_MoE --expert_type NLinear --root_path ./dataset/ --data_path weather.csv --data custom --features M --seq_len 96 --pred_len 96 --enc_in 21 --dec_in 21 --c_out 21
+python run.py --task_name long_term_forecast --is_training 1 --model_id Weather_96_96 --model SRG_MoE --expert_type NLinear --root_path ./dataset/ --data_path weather.csv --data custom --features M --seq_len 96 --pred_len 96 --enc_in 21 --dec_in 21 --c_out 21
 ```
 
