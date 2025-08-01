@@ -1,26 +1,6 @@
 # When Mixture-of-Experts Meets Time Series Forecasting: A Shift-Resilient Gate Framework
 
-This is the official PyTorch implementation of our paper: **"When Mixture-of-Experts Meets Time Series Forecasting: A Shift-Resilient Gate Framework"**. Our model introduces a novel Mixture-of-Experts (MoE) architecture with EMA-based gating mechanism specifically designed for time series forecasting.
-
-
-## Key Features
-
-Our framework addresses the critical challenge of distribution shifts in time series forecasting through innovative architectural design:
-
-### **Mixture-of-Experts Architecture**
-- **Multi-Expert Integration**: Supports diverse expert models (PatchTST, NLinear, TCN)
-- **Dynamic Expert Selection**: Novel gating mechanism for optimal expert combination
-
-
-### **EMA-based Shift-Resilient Gating**
-- **Exponential Moving Average**: Trend-seasonal decomposition with SC-EMA
-- **Dual-Path Gating**: Separate pathways for trend and seasonal components
-- **Monte Carlo Dropout**: Uncertainty quantification for robust predictions
-
-### **Expert Models**
-1. **PatchTST Expert**: Patch-based Transformer for capturing local patterns
-2. **NLinear Expert**: Normalized linear model for stable predictions
-3. **TCN Expert**: Temporal Convolutional Network for sequential modeling
+This is the official PyTorch implementation of our paper: **"When Mixture-of-Experts Meets Time Series Forecasting: A Shift-Resilient Gating Framework"**. Our model introduces a novel Mixture-of-Experts (MoE) architecture with EMA-based gating mechanism specifically designed for time series forecasting.
 
 
 ## Requirements
@@ -131,9 +111,4 @@ The detailed descriptions about the arguments are as follows:
 ```bash
 python run.py --task_name long_term_forecast --is_training 1 --model_id Weather_96_96 --model SREMC_MoE --expert_type NLinear --root_path ./dataset/ --data_path weather.csv --data custom --features M --seq_len 96 --pred_len 96 --enc_in 21 --dec_in 21 --c_out 21
 ```
-
-
-## Results
-
-We experiment on three benchmarks covering diverse real-world applications and achieves satisfactory performance in long-term forecasting tasks.
 
