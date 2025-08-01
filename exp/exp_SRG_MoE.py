@@ -16,11 +16,11 @@ from exp.exp_long_term_forecasting import Exp_Long_Term_Forecast
 
 warnings.filterwarnings('ignore')
 
-class Exp_SREMC_MoE(Exp_Basic):
+class Exp_SRG_MoE(Exp_Basic):
     def __init__(self, args):
         super(Exp_SREMC_MoE, self).__init__(args)
         self.entropy_weight = args.entropy_weight
-        self.margin_k = 1.25 
+        self.margin_k =1.25 
         
     def _build_model(self):
         model = self.model_dict[self.args.model].Model(self.args).float()
