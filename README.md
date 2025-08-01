@@ -100,7 +100,7 @@ The detailed descriptions about the arguments are as follows:
 | alpha | EMA smoothing parameter (defaults to 0.3) |
 | entropy_weight | Weight for entropy loss (defaults to 0.1) |
 | **Training Parameters** | |
-| train_epochs | Training epochs (defaults to 100) |
+| train_epochs | Training epochs (defaults to 10) |
 | batch_size | Batch size (defaults to 32) |
 | learning_rate | Learning rate (defaults to 0.0001) |
 | patience | Early stopping patience (defaults to 3) |
