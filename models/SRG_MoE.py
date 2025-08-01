@@ -185,7 +185,7 @@ class SRG_Gate(nn.Module):
             # trend_flat = trend.reshape(batch_size, -1)
             # trend_flat_expand = trend_flat.repeat(self.num_samples, 1)
 
-            # # Dropout采样
+         
             # seasonal_weight = self.linear1(seasonal_flat_expand)
             # seasonal_weight = F.dropout(seasonal_weight, p=self.dropout_rate, training=True)
             # gatesum_seasonal = F.softmax(seasonal_weight, dim=1)
