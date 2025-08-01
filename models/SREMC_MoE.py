@@ -121,27 +121,8 @@ class SC_EMA(nn.Module):
         
         return sc_ema_output.permute(0, 2, 1)
 
-class TwoMLPModel(nn.Module):
-    def __init__(self, input_dim, hidden_dim1, hidden_dim2, num_expert):
-        super(TwoMLPModel, self).__init__()
-        self.mlp1 = nn.Sequential(
-            nn.Linear(input_dim, hidden_dim1),
-            nn.ReLU(),
-            nn.Linear(hidden_dim1, hidden_dim2)
-        )
-        self.mlp2 = nn.Sequential(
-            nn.Linear(hidden_dim2, hidden_dim1),
-            nn.ReLU(),
-            nn.Linear(hidden_dim1, num_expert)
-        )
 
-    def forward(self, x):
-        x = self.mlp1(x)
-        output = self.mlp2(x)
-        return output
-
-
-class BEDF_Gate(nn.Module):
+class decom_Gate(nn.Module):
     def __init__(self, alpha):
         super(BEDF_Gate, self).__init__()
         self.ma = SC_EMA(alpha)
@@ -152,10 +133,10 @@ class BEDF_Gate(nn.Module):
         return seasonal, trend
 
 
-class SREMC_Gate(nn.Module):
+class SRG_Gate(nn.Module):
     def __init__(self, configs):
         super(SREMC_Gate, self).__init__()
-        self.decom = BEDF_Gate(configs.alpha)
+        self.decom = decom_Gate(configs.alpha)
         self.mc_dropout = True
         self.dropout_rate = getattr(configs, 'mc_dropout', 0.1)
         self.num_samples = configs.num_samples
@@ -383,8 +364,8 @@ class Model(nn.Module):
         # Restore the original seed to not affect other parts of the model
         torch.manual_seed(self.seed)
 
-        # Use SREMC_Gate
-        self.gate = SREMC_Gate(configs)
+     
+        self.gate = SRG_Gate(configs)
 
     def _init_weights(self, module):
         if isinstance(module, (nn.Linear, nn.Conv1d)):
