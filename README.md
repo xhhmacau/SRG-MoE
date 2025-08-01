@@ -87,7 +87,7 @@ The detailed descriptions about the arguments are as follows:
 
 | Parameter name | Description of parameter |
 | --- | --- |
-| model | The model of experiment (defaults to `SREMC_MoE`) |
+| model | The model of experiment |
 | data | The dataset type |
 | task_name | The forecasting task (defaults to `long_term_forecast`) |
 | seq_len | Input sequence length (defaults to 96) |
