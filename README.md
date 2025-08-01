@@ -1,4 +1,4 @@
-# When Mixture-of-Experts Meets Time Series Forecasting: A Shift-Resilient Gate Framework
+# When Mixture-of-Experts Meets Time Series Forecasting: A Shift-Resilient Gating Framework
 
 This is the official PyTorch implementation of our paper: **"When Mixture-of-Experts Meets Time Series Forecasting: A Shift-Resilient Gating Framework"**. Our model introduces a novel Mixture-of-Experts (MoE) architecture with EMA-based gating mechanism specifically designed for time series forecasting.
 
